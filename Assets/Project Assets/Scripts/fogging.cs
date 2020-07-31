@@ -5,13 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+
 public class fogging : MonoBehaviour { 
 
     public GameObject objectReference;
     public GameObject sliderObject;
     public GameObject UIToShow;
     public GameObject textObject;
-    public GameObject submitbuttonObject;
+    //public GameObject submitbuttonObject;
     Button submitbutton;
     public GameObject resetbuttonObject;
     Button resetbutton;
@@ -36,8 +38,8 @@ public class fogging : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        submitbutton = submitbuttonObject.GetComponent<Button>();
-        submitbutton.onClick.AddListener(TaskOnClick);
+        //submitbutton = submitbuttonObject.GetComponent<Button>();
+        //submitbutton.onClick.AddListener(TaskOnClick);
         previousColor = safe;
         resetbutton = resetbuttonObject.GetComponent<Button>();
         resetbutton.onClick.AddListener(resetTask);
@@ -110,9 +112,9 @@ public class fogging : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        material = objectReference.GetComponent<Renderer>().sharedMaterial;
-        Slider slider = sliderObject.GetComponent<Slider>();
-        textObject.GetComponent<UnityEngine.UI.Text>().text = StringOnValue(slider.value);
+       // material = objectReference.GetComponent<Renderer>().sharedMaterial;
+        InteractionSlider slider = sliderObject.GetComponent<InteractionSlider>();
+        //textObject.GetComponent<UnityEngine.UI.Text>().text = StringOnValue(slider.HorizontalSliderValue);
         if (homePressed)
         {
             float step = speed * Time.deltaTime;
@@ -132,9 +134,9 @@ public class fogging : MonoBehaviour {
 
         foreach (GameObject objectToColor in objectsToColor)
         {            
-            currentColor = ColorOnValue(slider.value);
+            currentColor = ColorOnValue(slider.HorizontalSliderValue);
             objectToColor.GetComponent<Image>().color = currentColor;
         }
-        material.SetFloat("_Density", (1/slider.value)/2);
+       // material.SetFloat("_Density", (1/slider.HorizontalSliderValue) /2);
     }
 }
