@@ -6,7 +6,7 @@ public class uiscript : MonoBehaviour
 {
     public GameObject activeChecker1;
     public GameObject activeChecker2;
-    public GameObject shower; 
+    public GameObject[] showObjects; 
     public GameObject objectHider;
     private bool found = false;
     // Start is called before the first frame update
@@ -21,7 +21,10 @@ public class uiscript : MonoBehaviour
         if ((activeChecker1.activeSelf || activeChecker2.activeSelf) && !found)
         {
             objectHider.SetActive(false);
-            shower.SetActive(true);
+            foreach (GameObject show in showObjects)
+            {
+                show.SetActive(true);
+            }
             found = true;
         }
     }
