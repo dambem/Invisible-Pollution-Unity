@@ -54,6 +54,10 @@
 		public GameObject slider1;
 		public GameObject slider2;
 		public GameObject slider3;
+
+		public GameObject target1;
+		public GameObject target2;
+		public GameObject target3;
 		[SerializeField]
 		float _spawnScale = 100f;
 		public float speed = 0.01f;
@@ -69,22 +73,9 @@
 		{
 			var earthRadius = ((IGlobeTerrainLayer)_map.Terrain).EarthRadius;
 
-			float lat1 = 53.3825f;
-			float lon1 = -1.47194f;
-			float xPos1 = (100f) * Mathf.Cos(lat1) * Mathf.Cos(lon1);
+
 			UnityEngine.Debug.Log(xPos1);
-			float zPos1 = (100f) * Mathf.Cos(lat1) * Mathf.Sin(lon1);
-			float yPos1 = (100f) * Mathf.Sin(lat1);
-			float lat2 = 34.0544f;
-			float lon2 = -118.2439f;
-			float xPos2 = (100f) * Mathf.Cos(lat1) * Mathf.Cos(lon1);
-			float zPos2 = (100f) * Mathf.Cos(lat1) * Mathf.Sin(lon1);
-			float yPos2 = (100f) * Mathf.Sin(lat1);
-			float lat3 = 28.66667f;
-			float lon3 = 77.21667f;
-			float xPos3 = (100f) * Mathf.Cos(lat1) * Mathf.Cos(lon1);
-			float zPos3 = (100f) * Mathf.Cos(lat1) * Mathf.Sin(lon1);
-			float yPos3 = (100f) * Mathf.Sin(lat1);
+
 			instance1 = Instantiate(_markerPrefab);
 			var location1L = Conversions.StringToLatLon(location1);
 			instance1.transform.position = Conversions.GeoToWorldGlobePosition(location1L, earthRadius);
@@ -103,6 +94,7 @@
 			instance3.transform.localScale = Vector3.one * _spawnScale;
 			instance3.transform.SetParent(transform);
 
+			_objectToRotate.transform.Rotate(xPos2, yPos2, zPos2, Space.World);
 
 		}
 		void makePress1()
@@ -129,32 +121,56 @@
 			{
 				UIToHide.SetActive(false);
 				UIToShow.SetActive(true);
-				//buttons.SetActive(false);
+				buttons.SetActive(false);
+				Vector3 targetDirection = target1.transform.position - _objectToRotate.transform.position;
+
+				// The step size is equal to speed times frame time.
 				float singleStep = speed * Time.deltaTime;
 
-				_objectToRotate.transform.Rotate(xPos1, yPos1, zPos1, Space.World);
+				// Rotate the forward vector towards the target direction by one step
+				Vector3 newDirection = Vector3.RotateTowards(_objectToRotate.transform.forward, targetDirection, singleStep, 0.0f);
 
-				//slider1.SetActive(true);
+				// Calculate a rotation a step closer to the target and applies rotation to this object
+				_objectToRotate.transform.rotation = Quaternion.LookRotation(newDirection);
+
+
+				slider1.SetActive(true);
 			}
 			if (pressed2)
 			{
 				UIToHide.SetActive(false);
 				UIToShow.SetActive(true);
-				//buttons.SetActive(false);
-				float singleStep = speed * Time.deltaTime;
-				_objectToRotate.transform.Rotate(xPos1, yPos1, zPos1, Space.World);
+				buttons.SetActive(false);
+				Vector3 targetDirection = target2.transform.position - _objectToRotate.transform.position;
 
-				//slider2.SetActive(true);
+				// The step size is equal to speed times frame time.
+				float singleStep = speed * Time.deltaTime;
+
+				// Rotate the forward vector towards the target direction by one step
+				Vector3 newDirection = Vector3.RotateTowards(_objectToRotate.transform.forward, targetDirection, singleStep, 0.0f);
+
+				// Calculate a rotation a step closer to the target and applies rotation to this object
+				_objectToRotate.transform.rotation = Quaternion.LookRotation(newDirection);
+
+				slider2.SetActive(true);
 			}
 			if (pressed3)
 			{
 				UIToHide.SetActive(false);
 				UIToShow.SetActive(true);
-				//buttons.SetActive(false);
-				float singleStep = speed * Time.deltaTime;
-				_objectToRotate.transform.Rotate(xPos1, yPos1, zPos1, Space.World);
+				buttons.SetActive(false);
+				Vector3 targetDirection = target3.transform.position - _objectToRotate.transform.position;
 
-				//slider3.SetActive(true);
+				// The step size is equal to speed times frame time.
+				float singleStep = speed * Time.deltaTime;
+
+				// Rotate the forward vector towards the target direction by one step
+				Vector3 newDirection = Vector3.RotateTowards(_objectToRotate.transform.forward, targetDirection, singleStep, 0.0f);
+
+				// Calculate a rotation a step closer to the target and applies rotation to this object
+				_objectToRotate.transform.rotation = Quaternion.LookRotation(newDirection);
+
+				slider3.SetActive(true);
 			}
 
 		}
