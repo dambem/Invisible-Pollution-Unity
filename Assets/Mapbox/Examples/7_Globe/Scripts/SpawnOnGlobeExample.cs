@@ -15,6 +15,7 @@
 	{
 		[SerializeField]
 		AbstractMap _map;
+		public GameObject _objectToRotate;
 
 		[SerializeField]
 		[Geocode]
