@@ -35,7 +35,6 @@ public class sliderPortion : MonoBehaviour
     void Update()
     {
         interactionBehaviour1 = submitButton.GetComponent<InteractionButton>();
-
         interactionBehaviour1.OnPress += Submit;
 
         float sliderVal = leapSlider.HorizontalSliderValue;
@@ -51,7 +50,7 @@ public class sliderPortion : MonoBehaviour
             {
                 objecttoshow.SetActive(true);
             }
-
+            submit = false;
         }
     }
 
