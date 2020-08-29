@@ -10,6 +10,7 @@
 	using Leap.Unity;
 	using Leap.Unity.Interaction;
     using System.Diagnostics;
+    using System.Collections.Specialized;
 
     public class SpawnOnGlobeExample : MonoBehaviour
 	{
@@ -58,6 +59,7 @@
 		public GameObject target1;
 		public GameObject target2;
 		public GameObject target3;
+		public GameObject target;
 		[SerializeField]
 		float _spawnScale = 100f;
 		public float speed = 0.01f;
@@ -65,6 +67,7 @@
 		bool pressed1 = false;
 		bool pressed2 = false;
 		bool pressed3 = false;
+		bool rotate = false;
 		[SerializeField]
 		GameObject _markerPrefab;
 
@@ -109,68 +112,64 @@
 		{
 			pressed3 = true;
 		}
+		void RotateTowards()
+        {
+			float singleStep = speed * Time.deltaTime;
+			Vector3 targetDirection = target.transform.position - _objectToRotate.transform.position;
+			Vector3 newDirection = Vector3.RotateTowards(_objectToRotate.transform.forward, targetDirection, singleStep, 0.0f);
+			_objectToRotate.transform.rotation = Quaternion.LookRotation(newDirection);
+        }
+		
 		void Update()
         {
+			// The step size is equal to speed times frame time.
 			var interactionBehaviour1 = button1.GetComponent<InteractionButton>();
 			var interactionBehaviour2 = button2.GetComponent<InteractionButton>();
 			var interactionBehaviour3 = button3.GetComponent<InteractionButton>();
 			interactionBehaviour1.OnPress += makePress1;
 			interactionBehaviour2.OnPress += makePress2;
 			interactionBehaviour3.OnPress += makePress3;
+			if (rotate)
+            {
+				RotateTowards();
+            }
 			if (pressed1)
 			{
 				UIToHide.SetActive(false);
 				UIToShow.SetActive(true);
 				buttons.SetActive(false);
-				Vector3 targetDirection = target1.transform.position - _objectToRotate.transform.position;
-
-				// The step size is equal to speed times frame time.
-				float singleStep = speed * Time.deltaTime;
-
-				// Rotate the forward vector towards the target direction by one step
-				Vector3 newDirection = Vector3.RotateTowards(_objectToRotate.transform.forward, targetDirection, singleStep, 0.0f);
-
-				// Calculate a rotation a step closer to the target and applies rotation to this object
-				_objectToRotate.transform.rotation = Quaternion.LookRotation(newDirection);
 
 
+				target = target1;
+				rotate = true;
 				slider1.SetActive(true);
+				pressed1 = false;
+				
+				
 			}
 			if (pressed2)
 			{
 				UIToHide.SetActive(false);
 				UIToShow.SetActive(true);
 				buttons.SetActive(false);
-				Vector3 targetDirection = target2.transform.position - _objectToRotate.transform.position;
 
-				// The step size is equal to speed times frame time.
-				float singleStep = speed * Time.deltaTime;
 
-				// Rotate the forward vector towards the target direction by one step
-				Vector3 newDirection = Vector3.RotateTowards(_objectToRotate.transform.forward, targetDirection, singleStep, 0.0f);
-
-				// Calculate a rotation a step closer to the target and applies rotation to this object
-				_objectToRotate.transform.rotation = Quaternion.LookRotation(newDirection);
-
+				target = target2;
+				rotate = true;
 				slider2.SetActive(true);
+				pressed2 = false;
 			}
 			if (pressed3)
 			{
 				UIToHide.SetActive(false);
 				UIToShow.SetActive(true);
 				buttons.SetActive(false);
-				Vector3 targetDirection = target3.transform.position - _objectToRotate.transform.position;
 
-				// The step size is equal to speed times frame time.
-				float singleStep = speed * Time.deltaTime;
 
-				// Rotate the forward vector towards the target direction by one step
-				Vector3 newDirection = Vector3.RotateTowards(_objectToRotate.transform.forward, targetDirection, singleStep, 0.0f);
-
-				// Calculate a rotation a step closer to the target and applies rotation to this object
-				_objectToRotate.transform.rotation = Quaternion.LookRotation(newDirection);
-
+				target = target3;
+				rotate = true;
 				slider3.SetActive(true);
+				pressed3 = false;
 			}
 
 		}
