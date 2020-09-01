@@ -121,6 +121,100 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &36146961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36146962}
+  - component: {fileID: 36146964}
+  - component: {fileID: 36146963}
+  m_Layer: 0
+  m_Name: lifespan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &36146962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36146961}
+  m_LocalRotation: {x: -0.0000000043644466, y: 0.0000000043644484, z: -0.7071068,
+    w: 0.7071068}
+  m_LocalPosition: {x: 2.1250665, y: -0.9999657, z: 290.53412}
+  m_LocalScale: {x: -0.01567264, y: 0.07221792, z: 3.9970005}
+  m_Children: []
+  m_Father: {fileID: 230739608}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+--- !u!102 &36146963
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36146961}
+  m_Text: 20 Months that could be gained if adhering to WHO standards
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 3.84
+  m_FontSize: 58
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: dc7d8fc9ddd4e5543bd287b4f9cfe929, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &36146964
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36146961}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: dc7d8fc9ddd4e5543bd287b4f9cfe929, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &119262244
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,9 +538,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230739607}
   m_LocalRotation: {x: -0, y: 1.7763566e-15, z: -2.2204453e-16, w: 1}
-  m_LocalPosition: {x: -0.13, y: 0.25, z: -0.363}
-  m_LocalScale: {x: 0.07222585, y: 0.28245455, z: 0.00168}
-  m_Children: []
+  m_LocalPosition: {x: -0.19, y: 0.32, z: -0.363}
+  m_LocalScale: {x: -0.16, y: 0.43, z: 0.00168}
+  m_Children:
+  - {fileID: 36146962}
+  - {fileID: 264020354}
   m_Father: {fileID: 7082488907857796507}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -602,7 +698,7 @@ GameObject:
   - component: {fileID: 264020356}
   - component: {fileID: 264020355}
   m_Layer: 0
-  m_Name: New Text (1)
+  m_Name: cigarettes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,12 +711,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264020353}
-  m_LocalRotation: {x: 0.0036056368, y: 0.0036056382, z: 0.7070975, w: 0.7070977}
-  m_LocalPosition: {x: -0.5319781, y: -0.036132753, z: 0.07696722}
-  m_LocalScale: {x: 0.006739236, y: 0.011553695, z: 0.006744286}
+  m_LocalRotation: {x: 0.003605668, y: -0.0036056698, z: -0.7070975, w: 0.7070977}
+  m_LocalPosition: {x: 2.6872754, y: -0.41857043, z: 261.8444}
+  m_LocalScale: {x: -0.014667401, y: 0.06758595, z: 3.7205043}
   m_Children: []
-  m_Father: {fileID: 7082488907857796507}
-  m_RootOrder: 3
+  m_Father: {fileID: 230739608}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 91.15, y: 0, z: -0.000015258789}
 --- !u!102 &264020355
 TextMesh:
@@ -637,7 +733,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 3.84
-  m_FontSize: 81
+  m_FontSize: 75
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: dc7d8fc9ddd4e5543bd287b4f9cfe929, type: 3}
@@ -1644,6 +1740,99 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &488335655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488335656}
+  - component: {fileID: 488335658}
+  - component: {fileID: 488335657}
+  m_Layer: 0
+  m_Name: actualmortality
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &488335656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488335655}
+  m_LocalRotation: {x: 0.71416736, y: 0.00000013373034, z: -0.00000013107277, w: 0.69997495}
+  m_LocalPosition: {x: -0.61, y: 2.34, z: -0.55}
+  m_LocalScale: {x: 0.052660424, y: 0.052660424, z: 0.052660424}
+  m_Children: []
+  m_Father: {fileID: 544507693}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 91.15, y: 0, z: -0.000015258789}
+--- !u!102 &488335657
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488335655}
+  m_Text: "20 Months that could be gained\n if adhering to WHO standards"
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 1
+  m_TabSize: 3.84
+  m_FontSize: 81
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: dc7d8fc9ddd4e5543bd287b4f9cfe929, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &488335658
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488335655}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: dc7d8fc9ddd4e5543bd287b4f9cfe929, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &490505272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1938,7 @@ GameObject:
   - component: {fileID: 516819678}
   - component: {fileID: 516819677}
   m_Layer: 0
-  m_Name: New Text (1)
+  m_Name: actualcigarettes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1848,7 +2037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &544507690
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1923,6 +2112,7 @@ Transform:
   m_Children:
   - {fileID: 1648598196}
   - {fileID: 516819676}
+  - {fileID: 488335656}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: -70.566, y: 0, z: 0}
@@ -2369,7 +2559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &869230729
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4362,7 +4552,7 @@ GameObject:
   - component: {fileID: 1648598198}
   - component: {fileID: 1648598197}
   m_Layer: 0
-  m_Name: New Text
+  m_Name: actualcigarettes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6792,19 +6982,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: Sheffield
-  pm2: 20
-  pm10: 20
+  pm2: 21.25
+  pm10: 34.08
   objectsToHide:
   - {fileID: 1183264310}
-  - {fileID: 7082488908576601204}
+  - {fileID: 7082488907857796503}
   objectsToShow:
   - {fileID: 544507689}
   - {fileID: 1060244053}
   submitButton: {fileID: 7083800404654010949}
   leapSlider: {fileID: 7082488908576601206}
-  cigaretteAmount: {fileID: 2063179925}
-  chosenValue: {fileID: 1456892299}
-  actualValue: {fileID: 715382277}
+  cigaretteAmount: {fileID: 264020355}
+  mortalityReduction: {fileID: 0}
+  chosenValue: {fileID: 1648598197}
+  actualValue: {fileID: 516819677}
+  actualReduction: {fileID: 0}
 --- !u!4 &7082488907857796507
 Transform:
   m_ObjectHideFlags: 0
@@ -6819,7 +7011,6 @@ Transform:
   - {fileID: 7082488908924231630}
   - {fileID: 7082488908875815793}
   - {fileID: 230739608}
-  - {fileID: 264020354}
   m_Father: {fileID: 157738451016489416}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
