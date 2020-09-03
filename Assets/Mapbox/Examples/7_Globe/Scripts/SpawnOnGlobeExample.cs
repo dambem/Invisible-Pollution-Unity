@@ -84,19 +84,22 @@
 			instance1.transform.position = Conversions.GeoToWorldGlobePosition(location1L, earthRadius);
             instance1.transform.localScale = Vector3.one * _spawnScale;
             instance1.transform.SetParent(transform);
-
+			TextMesh textmesh = instance1.GetComponentInChildren<TextMesh>();
+			textmesh.text = "Sheffield";
 			instance2 = Instantiate(_markerPrefab);
 			var location2L = Conversions.StringToLatLon(location2);
 			instance2.transform.position = Conversions.GeoToWorldGlobePosition(location2L, earthRadius);
 			instance2.transform.localScale = Vector3.one * _spawnScale;
 			instance2.transform.SetParent(transform);
-
+			TextMesh textmesh2 = instance2.GetComponentInChildren<TextMesh>();
+			textmesh2.text = "Los Angeles";
 			instance3 = Instantiate(_markerPrefab);
 			var location3L = Conversions.StringToLatLon(location3);
 			instance3.transform.position = Conversions.GeoToWorldGlobePosition(location3L, earthRadius);
 			instance3.transform.localScale = Vector3.one * _spawnScale;
 			instance3.transform.SetParent(transform);
-
+			TextMesh textmesh3 = instance3.GetComponentInChildren<TextMesh>();
+			textmesh3.text = "Delhi";
 			_objectToRotate.transform.Rotate(xPos2, yPos2, zPos2, Space.World);
 
 		}

@@ -21,7 +21,15 @@ public class sliderPortion : MonoBehaviour
     public TextMesh chosenValue;
     public TextMesh actualValue;
     public TextMesh actualReduction;
+    public Color light = new Color(0.255f, 0.140f, 0.066f);
+    public Color medium = new Color(0.255f, 0.242f, 0.117f);
+    public Color high = new Color(0.255f, 0.060f, 0.056f);
+    public Color bigdanger = new Color(0.026f, 0f, 0.006f);
+    public Color safe = new Color(1f, 1f, 1f);
     bool submit = false;
+    public GameObject sliderColor;
+    public Material foggingMat;
+    public GameObject fogger;
     InteractionButton interactionBehaviour1;
 
     // Start is called before the first frame update
@@ -38,11 +46,13 @@ public class sliderPortion : MonoBehaviour
     {
         interactionBehaviour1 = submitButton.GetComponent<InteractionButton>();
         interactionBehaviour1.OnPress += Submit;
-
         float sliderVal = leapSlider.HorizontalSliderValue;
         float cigarettes = CalculateCigarettes(sliderVal);
+
+        foggingMat.SetFloat("_Density", densityCalc(sliderVal));
         cigaretteAmount.text = cigarettes.ToString() + " Cigarettes Per Week";
-        mortalityReduction.text = lifeSpan(sliderVal, sliderVal) + "Months that could be gained if adhering to WHO standards";
+        mortalityReduction.text = lifeSpan(sliderVal, sliderVal) + " Months that could be gained if adhering to WHO standards";
+        fogger.SetActive(true);
         if (submit)
         {
             foreach (GameObject objecttoHide in objectsToHide)
@@ -51,7 +61,7 @@ public class sliderPortion : MonoBehaviour
             }
             chosenValue.text = cigarettes.ToString() + " Cigarettes Per Week";
             actualValue.text = CalculateCigarettes(pm2) + " Cigarettes Per Week";
-            actualReduction.text = lifeSpan(pm10, pm2) + "Months that could be gained if adhering to WHO standards";
+            actualReduction.text = lifeSpan(pm10, pm2) + " Months that could be gained \n if adhering to WHO standards";
             foreach (GameObject objecttoshow in objectsToShow)
             {
                 objecttoshow.SetActive(true);
@@ -72,7 +82,34 @@ public class sliderPortion : MonoBehaviour
         }
         else
         {
-            return ((PM10inc * 7.0f) + (PM2inc * 12.0f));
+            return (Mathf.Round((PM10inc * 7.0f) + (PM2inc * 12.0f)));
+        }
+    }
+    float densityCalc(float sliderVal)
+    {
+        return ((-2f * (sliderVal / 100f)) + 2);
+    }
+    Color ColorOnValue(float value)
+    {
+        if (value >= 20 && value < 40)
+        {
+            return light;
+        }
+        if (value >= 40 && value < 60)
+        {
+            return medium;
+        }
+        if (value >= 60 && value < 80)
+        {
+            return high;
+        }
+        if (value >= 80 && value < 100)
+        {
+            return bigdanger;
+        }
+        else
+        {
+            return safe;
         }
     }
     float CalculateCigarettes(float pm2val)
