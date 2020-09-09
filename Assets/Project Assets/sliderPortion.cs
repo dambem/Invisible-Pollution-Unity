@@ -14,6 +14,7 @@ public class sliderPortion : MonoBehaviour
     public float pm10 = 20;
     public GameObject[] objectsToHide;
     public GameObject[] objectsToShow;
+    public ParticleSystem system;
     public GameObject submitButton;
     public InteractionSlider leapSlider;
     public TextMesh cigaretteAmount;
@@ -49,7 +50,13 @@ public class sliderPortion : MonoBehaviour
         float sliderVal = leapSlider.HorizontalSliderValue;
         float cigarettes = CalculateCigarettes(sliderVal);
 
-        foggingMat.SetFloat("_Density", densityCalc(sliderVal));
+        //foggingMat.SetFloat("_Density", densityCalc(sliderVal));
+        if (sliderVal >= 10)
+        {
+            system.Emit(new ParticleSystem.EmitParams() { position = UnityEngine.Random.onUnitSphere, startColor = Color.black, startSize = (sliderVal / 200f) }, 1); ;
+
+        }
+
         cigaretteAmount.text = cigarettes.ToString() + " Cigarettes Per Week";
         mortalityReduction.text = lifeSpan(sliderVal, sliderVal) + " Months that could be gained if adhering to WHO standards";
         fogger.SetActive(true);
