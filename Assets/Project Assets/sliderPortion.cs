@@ -53,13 +53,13 @@ public class sliderPortion : MonoBehaviour
         //foggingMat.SetFloat("_Density", densityCalc(sliderVal));
         if (sliderVal >= 10)
         {
+            fogger.SetActive(true);
             system.Emit(new ParticleSystem.EmitParams() { position = UnityEngine.Random.onUnitSphere, startColor = Color.black, startSize = (sliderVal / 200f) }, 1); ;
 
         }
 
         cigaretteAmount.text = cigarettes.ToString() + " Cigarettes Per Week";
         mortalityReduction.text = lifeSpan(sliderVal, sliderVal) + " Months that could be gained if adhering to WHO standards";
-        fogger.SetActive(true);
         if (submit)
         {
             foreach (GameObject objecttoHide in objectsToHide)
